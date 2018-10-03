@@ -9,6 +9,6 @@ WORKDIR /document-root/
 
 RUN chmod 0775 /docker-entrypoint.sh
 
-EXPOSE 8000 8001
+EXPOSE 8850
 
-CMD ["python", "-m", "SimpleHTTPServer", "8000"]
+CMD ["python", "-m", "SimpleHTTPServer", "8850"]

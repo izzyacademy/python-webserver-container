@@ -1,5 +1,15 @@
 ---
 # LoadBalancer Service used to access Python Web deployment
+# 
+# Deploy as follows:
+# kubectl create -f webapp-services.yml
+# 
+# Verify as follows:
+#
+# kubectl get services -n p20-python-apps
+# 
+# kubectl describe service webapp-loadbalancer -n p20-python-apps
+# 
 apiVersion: v1
 kind: Service
 metadata:
@@ -13,7 +23,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 8000
+  - port: 8850
     protocol: TCP
     targetPort: webui
   selector:

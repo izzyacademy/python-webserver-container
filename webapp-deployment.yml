@@ -35,6 +35,6 @@ spec:
           - name: P20_SECURITY_ENABLED
             value: "false"
         ports:
-        - containerPort: 8000
+        - containerPort: 8850
           name: webui
           protocol: TCP
