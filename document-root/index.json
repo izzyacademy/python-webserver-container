@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "Michael",
+      "country": "US",
+      "active": true
+    },
+    {
+      "name": "David",
+      "country": "CA",
+      "active": true
+    },
+    {
+      "name": "Daniel",
+      "country": "JP",
+      "active": true
+    }
+  ]
+}

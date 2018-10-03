@@ -1,0 +1,17 @@
+
+body {
+
+    margin-top: 60px;
+    margin-left: 60px;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.main-idea {
+    color:blue;
+}
+
+button, input {
+
+    margin-top: 20px;
+}
