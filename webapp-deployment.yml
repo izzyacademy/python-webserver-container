@@ -1,0 +1,40 @@
+---
+# Deploys the container as a single pod in the Kubernetes Cluster
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-webserver
+  namespace: p20-python-apps
+  labels:
+    k8s-app: python-webserver
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: python-webserver
+  template:
+    metadata:
+      labels:
+        k8s-app: python-webserver
+    spec:
+      containers:
+      - name: p20pythoncoolweb
+        image: p20izzyacr.azurecr.io/p20pythonweb 
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
+        env:
+          - name: P20_YEAR
+            value: "2018"
+          - name: P20_MONITORING_ENABLED
+            value: "false"
+          - name: P20_SECURITY_ENABLED
+            value: "false"
+        ports:
+        - containerPort: 8000
+          name: webui
+          protocol: TCP

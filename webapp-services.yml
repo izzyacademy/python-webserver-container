@@ -1,0 +1,20 @@
+---
+# LoadBalancer Service used to access Python Web deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-loadbalancer
+  namespace: p20-python-apps
+  labels:
+    k8s-app: webapp-loadbalancer
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "P20PythonWebApp"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: webui
+  selector:
+    k8s-app: python-webserver
