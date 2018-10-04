@@ -1,5 +1,5 @@
 
 function sayHello()
 {
-    alert("Hello. I work!")
+    alert("Hello! The button was clicked!")
 }

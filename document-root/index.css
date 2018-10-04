@@ -7,6 +7,16 @@ body {
     font-size: 14px;
 }
 
+li.compiled {
+
+    color:orange;
+}
+
+li.interpreted {
+
+    color:darkgreen;
+}
+
 .main-idea {
     color:blue;
 }
