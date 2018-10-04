@@ -11,23 +11,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-webapp
-  namespace: p20-webapps
+  name: {{ .Values.appData.labelValue }}
+  namespace: {{ .Values.appData.namespace }}
   labels:
-    k8s-app: nginx-webapp
+    k8s-app: {{ .Values.appData.labelValue }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: nginx-webapp
+      k8s-app: {{ .Values.appData.labelValue }}
   template:
     metadata:
       labels:
-        k8s-app: nginx-webapp
+        k8s-app: {{ .Values.appData.labelValue }}
     spec:
       containers:
-      - name: nginx-webapp
-        image: p20izzyacr.azurecr.io/nginxserver
+      - name: {{ .Values.appData.labelValue }}
+        image: {{ .Values.appData.imageName }}:{{ .Values.appData.imageVersion }}
         env:
           - name: P20_YEAR
             value: "2018"
