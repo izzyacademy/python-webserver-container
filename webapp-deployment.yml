@@ -5,6 +5,9 @@
 # 
 # This is how we validate that it is working
 # kubectl describe deployment nginx-webapp -n p20-webapps
+#
+# This is how to remove this deployment
+# kubectl delete deployment nginx-webapp -n p20-webapps
 apiVersion: apps/v1
 kind: Deployment
 metadata:
