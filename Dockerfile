@@ -1,14 +1,13 @@
 
-FROM python:2.7.15-alpine
+FROM nginx:1.15.5-alpine
 
-COPY document-root /document-root
+RUN rm -f /etc/nginx/conf.d/default.conf
+RUN rm -f /etc/nginx/nginx.conf
 
-COPY docker-entrypoint.sh /
+COPY document-root  /usr/share/nginx/html
 
-WORKDIR /document-root/
+COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN chmod 0775 /docker-entrypoint.sh
+COPY nginx.default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 8850
 
-CMD ["python", "-m", "SimpleHTTPServer", "8850"]

@@ -5,7 +5,6 @@
 # kubectl create -f webapp-services.yml
 # 
 # Verify as follows:
-#
 # kubectl get services -n p20-python-apps
 # 
 # kubectl describe service webapp-loadbalancer -n p20-python-apps

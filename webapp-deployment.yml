@@ -1,5 +1,10 @@
 ---
 # Deploys the container as a single pod in the Kubernetes Cluster
+# 
+# kubectl create -f webapp-deployment.yml
+# 
+# This is how we validate that it is working
+# kubectl describe deployment python-webserver -n p20-python-apps
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +26,7 @@ spec:
     spec:
       containers:
       - name: p20pythoncoolweb
-        image: p20izzyacr.azurecr.io/p20pythonweb 
+        image: p20izzyacr.azurecr.io/p20pythonweb
         resources:
           limits:
             cpu: 1000m
