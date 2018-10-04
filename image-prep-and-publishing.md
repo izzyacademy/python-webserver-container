@@ -91,6 +91,8 @@ docker kill <container_id>
 
 ## PUSHING THE IMAGES TO DOCKERHUB ########
 
+Now you can publish the different tags to DockerHub
+
 ```shell
 docker push izzyacademy/nginxserver:v1
 docker push izzyacademy/nginxserver:v2
@@ -98,4 +100,3 @@ docker push izzyacademy/nginxserver:v3
 docker push izzyacademy/nginxserver:v4
 docker push izzyacademy/nginxserver:latest 
 ```
-
