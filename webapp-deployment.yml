@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: nginx-webapp
-        image: p20izzyacr.azurecr.io/nginxserver
+        image: izzyacademy/nginxserver:v1
         env:
           - name: P20_YEAR
             value: "2018"

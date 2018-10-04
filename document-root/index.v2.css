@@ -1,0 +1,25 @@
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+    font-size: 14px;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+li.compiled {
+    color:blue;
+}
+
+li.interpreted {
+    color:orange;
+}
+
+.main-idea {
+    color:blue;
+}
+
+button, input {
+    margin-top: 20px;
+}
