@@ -4,34 +4,27 @@
 # kubectl create -f webapp-deployment.yml
 # 
 # This is how we validate that it is working
-# kubectl describe deployment python-webserver -n p20-python-apps
+# kubectl describe deployment nginx-webapp -n p20-webapps
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-webserver
-  namespace: p20-python-apps
+  name: nginx-webapp
+  namespace: p20-webapps
   labels:
-    k8s-app: python-webserver
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
+    k8s-app: nginx-webapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: python-webserver
+      k8s-app: nginx-webapp
   template:
     metadata:
       labels:
-        k8s-app: python-webserver
+        k8s-app: nginx-webapp
     spec:
       containers:
-      - name: p20pythoncoolweb
-        image: p20izzyacr.azurecr.io/p20pythonweb
-        resources:
-          limits:
-            cpu: 1000m
-          requests:
-            cpu: 100m
+      - name: nginx-webapp
+        image: p20izzyacr.azurecr.io/nginxserver
         env:
           - name: P20_YEAR
             value: "2018"
@@ -40,6 +33,6 @@ spec:
           - name: P20_SECURITY_ENABLED
             value: "false"
         ports:
-        - containerPort: 8850
-          name: webui
+        - containerPort: 80
+          name: ui
           protocol: TCP

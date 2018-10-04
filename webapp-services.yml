@@ -7,23 +7,20 @@
 # Verify as follows:
 # kubectl get services -n p20-python-apps
 # 
-# kubectl describe service webapp-loadbalancer -n p20-python-apps
+# kubectl describe service webapp-loadbalancer -n p20-webapps
 # 
 apiVersion: v1
 kind: Service
 metadata:
   name: webapp-loadbalancer
-  namespace: p20-python-apps
+  namespace: p20-webapps
   labels:
     k8s-app: webapp-loadbalancer
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
-    kubernetes.io/name: "P20PythonWebApp"
 spec:
   type: LoadBalancer
   ports:
-  - port: 8850
+  - port: 80
     protocol: TCP
-    targetPort: webui
+    targetPort: ui
   selector:
-    k8s-app: python-webserver
+    k8s-app: nginx-webapp
