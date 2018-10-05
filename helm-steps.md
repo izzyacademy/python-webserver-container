@@ -1,4 +1,21 @@
 
+## Helm Installation Steps
+
+```shell
+# Get the Script
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get -o get_helm.sh
+
+# Make it executable on the local machine
+chmod 700 get_helm.sh
+
+# Run the installation script (you might have to do it as sudo)
+# This will install Helm locally
+$ ./get_helm.sh
+
+# Initialize Helm and install it on the K8S cluster
+$ helm init
+```
+
 ## Helm Steps for Installing and Updating Charts
 
 Run this command to view the list of releases that have been deployed already if applicable
@@ -22,5 +39,55 @@ Run this command to update the deployment. This will override the variable in [v
 
 ```shell
 helm upgrade --set appData.imageVersion=v1 p20-thursday-releases ./app-languages
+```
+
+## Logging In to Azure Container Registry
+
+```shell
+
+az acr login --name <acrName>
+
+az acr login --name p24dockerepo
+
+```
+
+## Building Docker Containers and Publishing to ACR
+
+```shell
+
+# Build the Image and Tag It
+docker build -t p24dockerepo.azurecr.io/nginxserver .
+
+# Upload to ACR
+docker push p24dockerepo.azurecr.io/nginxserver
+
+# View Repo Contents
+az acr repository list --name p24dockerepo --output tabl
+
+```
+
+## Adding ACR as a Helm Repo
+
+```shell
+
+# Add
+az acr helm repo add -n p24dockerepo
+
+```
+
+## Pushing Helm Charts to Azure Container Registry
+
+```shell
+
+# Create the chart and then make changes to app-languages/Chart.yaml, app-languages/templates/*.yaml and app-languages/values.yaml
+helm create app-languages
+
+# Generate a Package the Helm Chart
+helm package app-languages
+
+# Publish the Chart to the ACR Helm Repo
+az acr helm push -n p24dockerepo ./app-languages-0.1.0.tgz
+
+
 ```
 
