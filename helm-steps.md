@@ -91,3 +91,22 @@ az acr helm push -n p24dockerepo ./app-languages-0.1.0.tgz
 
 ```
 
+
+## Install Using Helm Repo Instead of Local Chart
+
+```shell
+
+# Add Azure Container Registry as One of the Helm Repos
+az acr helm repo add -n p24dockerepo
+
+```
+
+Run this command to install the Helm Chart
+
+```shell
+helm install --set appData.imageVersion=v4 --name p20-thursday-release app-languages
+```
+
+```shell
+helm upgrade --set appData.imageVersion=v1 p20-thursday-releases app-languages
+```
