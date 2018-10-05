@@ -18,7 +18,7 @@ Run this command to install the Helm Chart
 helm install --set appData.imageVersion=v4 --name p20-thursday-release ./app-languages
 ```
 
-Run this command to update the deployment. This will override the variable in (values.yaml)[https://github.com/izzyacademy/python-webserver-container/blob/master/app-languages/values.yaml] and the image with the v1 tag installed earlier will replace v4
+Run this command to update the deployment. This will override the variable in [values.yaml](https://github.com/izzyacademy/python-webserver-container/blob/master/app-languages/values.yaml) and the image with the v1 tag installed earlier will replace v4
 
 ```shell
 helm upgrade --set appData.imageVersion=v1 p20-thursday-releases ./app-languages
