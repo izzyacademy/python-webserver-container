@@ -5,7 +5,7 @@ Run this command to view the list of releases that have been deployed already if
 
 ```shell
 helm list
-``
+```
 
 Running this command to delete a specific release
 ```shell
