@@ -70,7 +70,7 @@ az acr repository list --name p24dockerepo --output tabl
 
 ```shell
 
-# Add
+# Add Azure Container Registry as One of the Helm Repos
 az acr helm repo add -n p24dockerepo
 
 ```
